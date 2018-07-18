@@ -4,24 +4,40 @@
 }
 
 <h2>BindingFormPage</h2>
-@*c# model Binding form tag*@
-@using (Html.BeginForm())
+
+@if (ViewBag.added == true)
 {
-	@Html.LabelFor(m => m.City)
-	@Html.TextBoxFor(m => m.City)
-	@Html.ValidationMessageFor(m => m.City)
-	<br /><br />
-	@Html.LabelFor(m => m.SquareFeet)
-	@Html.TextBoxFor(m => m.SquareFeet)
-	@Html.ValidationMessageFor(m => m.SquareFeet)
-	<br /><br />
-	@Html.LabelFor(m => m.Floors)
-	@Html.TextBoxFor(m => m.Floors)
-	@Html.ValidationMessageFor(m => m.Floors)
-	<br /> <br />
-	@Html.LabelFor(m => m.Garage)
-	@Html.CheckBoxFor(m => m.Garage)
-	<br />
-	<br />
-	<input type="submit" value="Create Student" />
+	<h3>Your house was added</h3>
 }
+else
+{
+
+	@*c# model Binding form tag*@
+	using (Html.BeginForm())
+	{
+			@Html.LabelFor(m => m.City)
+		@Html.TextBoxFor(m => m.City)
+		@Html.ValidationMessageFor(m => m.City)
+		<br /><br />
+		@Html.LabelFor(m => m.SquareFeet)
+		@Html.TextBoxFor(m => m.SquareFeet)
+		@Html.ValidationMessageFor(m => m.SquareFeet)
+		<br /><br />
+		@Html.LabelFor(m => m.Floors)
+		@Html.TextBoxFor(m => m.Floors)
+		@Html.ValidationMessageFor(m => m.Floors)
+		<br /> <br />
+		@Html.LabelFor(m => m.Garage)
+		@Html.CheckBoxFor(m => m.Garage)
+		<br /><br />
+		@Html.LabelFor(m => m.Yard)
+		@Html.CheckBoxFor(m => m.Yard)
+		<br /><br />
+		@Html.LabelFor(m => m.Color)
+		@Html.TextAreaFor(m => m.Color)
+		@Html.ValidationMessageFor(m => m.Color)
+		
+		<input type = "submit" value = "Create House" />
+	}
+}
+

@@ -20,6 +20,7 @@ namespace MVC_Forms_vs_ModelBinding.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				ViewBag.added = true;
 				HouseDBs.AddHouse(h);
 			}
 			return View();
