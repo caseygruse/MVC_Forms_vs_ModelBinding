@@ -1,0 +1,27 @@
+﻿@model MVC_Forms_vs_ModelBinding.Models.House
+@{
+	ViewBag.Title = "BindingFormPage";
+}
+
+<h2>BindingFormPage</h2>
+@*c# model Binding form tag*@
+@using (Html.BeginForm())
+{
+	@Html.LabelFor(m => m.City)
+	@Html.TextBoxFor(m => m.City)
+	@Html.ValidationMessageFor(m => m.City)
+	<br /><br />
+	@Html.LabelFor(m => m.SquareFeet)
+	@Html.TextBoxFor(m => m.SquareFeet)
+	@Html.ValidationMessageFor(m => m.SquareFeet)
+	<br /><br />
+	@Html.LabelFor(m => m.Floors)
+	@Html.TextBoxFor(m => m.Floors)
+	@Html.ValidationMessageFor(m => m.Floors)
+	<br /> <br />
+	@Html.LabelFor(m => m.Garage)
+	@Html.CheckBoxFor(m => m.Garage)
+	<br />
+	<br />
+	<input type="submit" value="Create Student" />
+}

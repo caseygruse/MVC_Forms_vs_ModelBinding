@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Forms_vs_ModelBinding.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,17 +14,54 @@ namespace MVC_Forms_vs_ModelBinding.Controllers
 			return View();
 		}
 
-		public ActionResult About()
+		[HttpGet]
+		public ActionResult PickAHouseForm()
 		{
-			ViewBag.Message = "Your application description page.";
-
 			return View();
 		}
 
-		public ActionResult Contact()
+		[HttpPost]
+		public ActionResult PickAHouseForm(FormCollection data)
 		{
-			ViewBag.Message = "Your contact page.";
+			bool garage = false;
+			if (data["Garage"] == "true")
+			{
+				garage = true;
+			}
 
+			bool yard = false;
+			if (data["Yard"] == "true")
+			{
+				yard = true;
+			}
+
+			House h = new House
+			{
+				City = data["City"],
+				SquareFeet = data["SquareFeet"],
+				Floors = Convert.ToByte(data["Floors"]),
+				Garage = garage,
+				Yard = yard,
+				Color = data["Color"]
+			};
+
+			
+			//Validate data for database
+			if (HouseDBs.AddHouse(h))
+			{
+				ViewBag.HouseAdded = true;
+				//add to database
+			}
+			
+			return View();
+
+			//HouseDB db = new HouseDB();
+
+			//db.Add(h);
+		}
+
+		public ActionResult PickAHouseBinding()
+		{
 			return View();
 		}
 	}

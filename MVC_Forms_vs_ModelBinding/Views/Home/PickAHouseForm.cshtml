@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Create a Home";
+}
+
+<h2>Choose your desired specifications</h2>
+
+<h2></h2>
+
+@if (ViewBag.HouseAdded == true)
+{
+	<h3>Your House was Added</h3>
+}
+else
+{
+
+	<h3>Please Fill Out the Form</h3>
+<form method="post">
+	<label>City</label>
+	<input type="text" name="City" />
+	<br />
+	<br />
+
+	<label>Square Feet</label>
+	<input type="text" name="Squarefeet"/>
+	<br />
+	<br />
+	
+	<label>Floors</label>
+	<input type="text" name="Floors" />
+	<br />
+	<br />
+
+	<label>Garage</label>
+	<select name="Garage">
+		<option value="true">Yes</option>
+		<option value="false">No</option>
+	</select>
+	<br />
+	<br />
+	
+	<label>Back Yard</label>
+	<select name="Yard">
+		<option value="true">Yes</option>
+		<option value="false">No</option>
+	</select>
+	<br />
+	<br />	
+
+	<label>Color</label>
+	<input type="text" name="Color"/>
+	<br />
+	<br />
+	<br />
+	<button type="submit"></button>
+
+
+</form>
+}
+
